@@ -29,7 +29,7 @@ function RemainingCredit() {
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
       <div className="input-group">
-        <label className="input-label">สิทธิ์คงเหลือ</label>
+        <label className="input-label">สิทธิคงเหลือ</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
