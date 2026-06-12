@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResultItem from './ResultItem'
+import { useToast } from './Toast'
 
 const MULTIPLIER_TOPUP = 0.67
 const MULTIPLIER_PURCHASE = 1.67
@@ -15,6 +16,7 @@ function RemainingCredit() {
   const [credit, setCredit] = useState('')
   const [target, setTarget] = useState('')
   const [shake, setShake] = useState(false)
+  const showToast = useToast()
 
   const creditNum = Number(credit) || 0
   const targetNum = Number(target) || 0
@@ -39,6 +41,7 @@ function RemainingCredit() {
               if (val === '') return setCredit('')
               if (Number(val) > 200) {
                 setShake(true)
+                showToast('สิทธิ์คงเหลือสูงสุดไม่เกิน 200 บาท (ต่อวัน)')
                 setTimeout(() => setShake(false), 300)
                 return
               }

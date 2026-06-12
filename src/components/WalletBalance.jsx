@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResultItem from './ResultItem'
+import { useToast } from './Toast'
 
 const MULTIPLIER_CONTRIBUTION = 1.5
 const MULTIPLIER_PURCHASE = 2.5
@@ -14,6 +15,7 @@ function calc(wallet) {
 function WalletBalance() {
   const [wallet, setWallet] = useState('')
   const [shake, setShake] = useState(false)
+  const showToast = useToast()
 
   const walletNum = Number(wallet) || 0
   const { contribution, purchase } = calc(walletNum)
@@ -36,6 +38,7 @@ function WalletBalance() {
               if (val === '') return setWallet('')
               if (Number(val) > 133) {
                 setShake(true)
+                showToast('กระเป๋าเงินคงเหลือสูงสุดไม่เกิน 133 บาท (ต่อวัน)')
                 setTimeout(() => setShake(false), 300)
                 return
               }
