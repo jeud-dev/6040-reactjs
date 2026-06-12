@@ -71,7 +71,7 @@ function RemainingCredit() {
           </div>
 
           {targetNum > 0 && (
-            <ResultItem label="ต้องเพิ่มจ่ายเอง" value={extra} />
+            <ResultItem label="ต้องจ่ายเพิ่มเอง" value={extra} />
           )}
         </div>
       )}

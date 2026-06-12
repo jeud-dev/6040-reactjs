@@ -25,7 +25,7 @@ function WalletBalance() {
 
       <div className="input-group">
         <label className="input-label">กระเป๋าเงินคงเหลือ</label>
-          <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
+        <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
             type="number"
@@ -34,7 +34,7 @@ function WalletBalance() {
             onChange={(e) => {
               const val = e.target.value
               if (val === '') return setWallet('')
-              if (Number(val) > 134) {
+              if (Number(val) > 133) {
                 setShake(true)
                 setTimeout(() => setShake(false), 300)
                 return
