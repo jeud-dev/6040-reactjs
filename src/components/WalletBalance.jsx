@@ -30,7 +30,12 @@ function WalletBalance() {
             type="number"
             inputMode="numeric"
             value={wallet}
-            onChange={(e) => setWallet(e.target.value)}
+            onChange={(e) => {
+              const val = e.target.value
+              if (val === '') return setWallet('')
+              if (Number(val) > 134) return
+              setWallet(val)
+            }}
             placeholder="0"
           />
           <span className="input-suffix">บาท</span>

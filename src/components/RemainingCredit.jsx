@@ -33,7 +33,12 @@ function RemainingCredit() {
             type="number"
             inputMode="numeric"
             value={credit}
-            onChange={(e) => setCredit(e.target.value)}
+            onChange={(e) => {
+              const val = e.target.value
+              if (val === '') return setCredit('')
+              if (Number(val) > 200) return
+              setCredit(val)
+            }}
             placeholder="0"
           />
           <span className="input-suffix">บาท</span>
