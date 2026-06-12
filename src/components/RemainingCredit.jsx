@@ -52,8 +52,8 @@ function RemainingCredit() {
 
       {creditNum > 0 && (
         <div className="results">
-          <ResultItem label="ต้องเติมเงินเท่าไหร่" value={topup} />
-          <ResultItem label="ซื้อสินค้าได้เท่าไหร่" value={purchase} />
+          <ResultItem label="ต้องเติมเงิน" value={topup} />
+          <ResultItem label="ซื้อสินค้าได้" value={purchase} />
 
           <div className="input-group" style={{ marginTop: 12 }}>
             <label className="input-label">ต้องการซื้อ 🛒 บาท</label>
