@@ -41,7 +41,7 @@ function RemainingCredit() {
               if (val === '') return setCredit('')
               if (Number(val) > 200) {
                 setShake(true)
-                showToast('สิทธิ์คงเหลือสูงสุดไม่เกิน 200 บาท (ต่อวัน)')
+                showToast('สิทธิคงเหลือสูงสุดไม่เกิน 200 บาท (ต่อวัน)')
                 setTimeout(() => setShake(false), 300)
                 return
               }
