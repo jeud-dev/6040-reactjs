@@ -25,11 +25,11 @@ function RemainingCredit() {
 
   return (
     <section className="calc-section credit-mode">
-      <h2 className="calc-title">คำนวณจากข้อมูลสิทธิคงเหลือ (ต่อวัน)</h2>
+      <h2 className="calc-title">คำนวณจากสิทธิคงเหลือ</h2>
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
       <div className="input-group">
-        <label className="input-label">สิทธิ์คงเหลือ (ต่อวัน)</label>
+        <label className="input-label">สิทธิ์คงเหลือ</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
@@ -55,11 +55,11 @@ function RemainingCredit() {
 
       {creditNum > 0 && (
         <div className="results">
-          <ResultItem label="ต้องเติมเงิน" value={topup} />
-          <ResultItem label="ซื้อสินค้าได้" value={purchase} />
+          <ResultItem label="เติมเงิน" value={topup} />
+          <ResultItem label="มูลค่าซื้อสินค้า" value={purchase} />
 
           <div className="input-group" style={{ marginTop: 12 }}>
-            <label className="input-label">ต้องการซื้อ 🛒 บาท</label>
+            <label className="input-label">ต้องการซื้อสินค้า 🛒 บาท</label>
             <div className="input-wrapper">
               <input
                 className="input-field"

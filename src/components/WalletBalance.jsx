@@ -22,11 +22,11 @@ function WalletBalance() {
 
   return (
     <section className="calc-section wallet-mode">
-      <h2 className="calc-title">คำนวณจากข้อมูลกระเป๋าเงินคงเหลือ (ต่อวัน)</h2>
+      <h2 className="calc-title">คำนวณจากเงินคงเหลือ/เติมเงิน</h2>
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
       <div className="input-group">
-        <label className="input-label">กระเป๋าเงินคงเหลือ (ต่อวัน)</label>
+        <label className="input-label">เงินคงเหลือ/เติมเงิน</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
@@ -38,7 +38,7 @@ function WalletBalance() {
               if (val === '') return setWallet('')
               if (Number(val) > 133) {
                 setShake(true)
-                showToast('กระเป๋าเงินคงเหลือสูงสุดไม่เกิน 133 บาท (ต่อวัน)')
+                showToast('เงินคงเหลือ/เติมเงิน สูงสุดไม่เกิน 133 บาท (ต่อวัน)')
                 setTimeout(() => setShake(false), 300)
                 return
               }
@@ -52,8 +52,8 @@ function WalletBalance() {
 
       {walletNum > 0 && (
         <div className="results">
-          <ResultItem label="ได้รับเงินสมทบจากรัฐ" value={contribution} />
-          <ResultItem label="ซื้อสินค้าได้" value={purchase} />
+          <ResultItem label="รับเงินสมทบจากรัฐ" value={contribution} />
+          <ResultItem label="มูลค่าซื้อสินค้า" value={purchase} />
         </div>
       )}
     </section>
