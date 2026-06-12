@@ -14,6 +14,7 @@ function calc(credit) {
 function RemainingCredit() {
   const [credit, setCredit] = useState('')
   const [target, setTarget] = useState('')
+  const [shake, setShake] = useState(false)
 
   const creditNum = Number(credit) || 0
   const targetNum = Number(target) || 0
@@ -27,7 +28,7 @@ function RemainingCredit() {
 
       <div className="input-group">
         <label className="input-label">สิทธิ์คงเหลือ</label>
-        <div className="input-wrapper">
+        <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
             type="number"
@@ -36,7 +37,11 @@ function RemainingCredit() {
             onChange={(e) => {
               const val = e.target.value
               if (val === '') return setCredit('')
-              if (Number(val) > 200) return
+              if (Number(val) > 200) {
+                setShake(true)
+                setTimeout(() => setShake(false), 300)
+                return
+              }
               setCredit(val)
             }}
             placeholder="0"
