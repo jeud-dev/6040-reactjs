@@ -20,11 +20,11 @@ function WalletBalance() {
 
   return (
     <section className="calc-section wallet-mode">
-      <h2 className="calc-title">กระเป๋าเงินคงเหลือ 👛 บาท</h2>
+      <h2 className="calc-title">คำนวณจากข้อมูลกระเป๋าเงินคงเหลือ (ต่อวัน)</h2>
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
       <div className="input-group">
-        <label className="input-label">กระเป๋าเงินคงเหลือ</label>
+        <label className="input-label">กระเป๋าเงินคงเหลือ (ต่อวัน)</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"

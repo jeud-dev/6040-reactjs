@@ -23,11 +23,11 @@ function RemainingCredit() {
 
   return (
     <section className="calc-section credit-mode">
-      <h2 className="calc-title">สิทธิคงเหลือ 💰 บาท</h2>
+      <h2 className="calc-title">คำนวณจากข้อมูลสิทธิคงเหลือ (ต่อวัน)</h2>
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
       <div className="input-group">
-        <label className="input-label">สิทธิ์คงเหลือ</label>
+        <label className="input-label">สิทธิ์คงเหลือ (ต่อวัน)</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
