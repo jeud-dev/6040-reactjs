@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import RemainingCredit from './components/RemainingCredit'
-import WalletBalance from './components/WalletBalance'
+import RemainCredit from './components/RemainCredit'
+import RemainWallet from './components/RemainWallet'
 import BottomNav from './components/BottomNav'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <p className="hero-period">📅 1 มิ.ย. – 30 ก.ย. 2569</p>
       </header>
 
-      <main>{tab === 'credit' ? <RemainingCredit /> : <WalletBalance />}</main>
+      <main>{tab === 'credit' ? <RemainCredit /> : <RemainWallet />}</main>
 
       <BottomNav active={tab} onSelect={setTab} />
     </>

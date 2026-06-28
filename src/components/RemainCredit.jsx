@@ -12,7 +12,7 @@ function calc(credit) {
   }
 }
 
-function RemainingCredit() {
+function RemainCredit() {
   const [credit, setCredit] = useState('')
   const [target, setTarget] = useState('')
   const [shake, setShake] = useState(false)
@@ -82,4 +82,4 @@ function RemainingCredit() {
   )
 }
 
-export default RemainingCredit
+export default RemainCredit

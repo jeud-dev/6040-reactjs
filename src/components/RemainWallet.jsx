@@ -12,7 +12,7 @@ function calc(wallet) {
   }
 }
 
-function WalletBalance() {
+function RemainWallet() {
   const [wallet, setWallet] = useState('')
   const [shake, setShake] = useState(false)
   const showToast = useToast()
@@ -60,4 +60,4 @@ function WalletBalance() {
   )
 }
 
-export default WalletBalance
+export default RemainWallet
