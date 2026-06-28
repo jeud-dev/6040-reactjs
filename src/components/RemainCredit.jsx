@@ -5,6 +5,11 @@ import { useToast } from './Toast'
 const MULTIPLIER_TOPUP = 0.67
 const MULTIPLIER_PURCHASE = 1.67
 
+const PERIODS = [
+  { key: 'day', label: 'ต่อวัน', max: 200 },
+  { key: 'month', label: 'ต่อเดือน', max: 1000 },
+]
+
 function calc(credit) {
   return {
     topup: Math.round(credit * MULTIPLIER_TOPUP),
@@ -15,6 +20,7 @@ function calc(credit) {
 function RemainCredit() {
   const [credit, setCredit] = useState('')
   const [target, setTarget] = useState('')
+  const [period, setPeriod] = useState(PERIODS[0])
   const [shake, setShake] = useState(false)
   const showToast = useToast()
 
@@ -28,6 +34,22 @@ function RemainCredit() {
       <h2 className="calc-title">คำนวณจากสิทธิคงเหลือ</h2>
       <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
 
+      <div className="period-toggle">
+        {PERIODS.map((p) => (
+          <button
+            key={p.key}
+            className={`period-btn ${period.key === p.key ? 'active' : ''}`}
+            onClick={() => {
+              setPeriod(p)
+              setCredit('')
+              setTarget('')
+            }}
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+
       <div className="input-group">
         <label className="input-label">สิทธิคงเหลือ</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
@@ -39,9 +61,9 @@ function RemainCredit() {
             onChange={(e) => {
               const val = e.target.value
               if (val === '') return setCredit('')
-              if (Number(val) > 200) {
+              if (Number(val) > period.max) {
                 setShake(true)
-                showToast('สิทธิคงเหลือสูงสุดไม่เกิน 200 บาท (ต่อวัน)')
+                showToast(`สิทธิคงเหลือสูงสุดไม่เกิน ${period.max} บาท (${period.label})`)
                 setTimeout(() => setShake(false), 300)
                 return
               }
