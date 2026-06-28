@@ -31,8 +31,7 @@ function RemainCredit() {
 
   return (
     <section className="calc-section credit-mode">
-      <h2 className="calc-title">คำนวณจากสิทธิคงเหลือ</h2>
-      <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
+      <h2 className="calc-title">คำนวณจากสิทธิไทยช่วยไทยคงเหลือ</h2>
 
       <div className="period-toggle">
         {PERIODS.map((p) => (
@@ -51,7 +50,7 @@ function RemainCredit() {
       </div>
 
       <div className="input-group">
-        <label className="input-label">สิทธิคงเหลือ</label>
+        <label className="input-label">สิทธิไทยช่วยไทยคงเหลือ</label>
         <div className={`input-wrapper ${shake ? 'shake' : ''}`}>
           <input
             className="input-field"
@@ -63,7 +62,9 @@ function RemainCredit() {
               if (val === '') return setCredit('')
               if (Number(val) > period.max) {
                 setShake(true)
-                showToast(`สิทธิคงเหลือสูงสุดไม่เกิน ${period.max} บาท (${period.label})`)
+                showToast(
+                  `สิทธิคงเหลือสูงสุดไม่เกิน ${period.max} บาท (${period.label})`,
+                )
                 setTimeout(() => setShake(false), 300)
                 return
               }
@@ -77,11 +78,11 @@ function RemainCredit() {
 
       {creditNum > 0 && (
         <div className="results">
-          <ResultItem label="เติมเงิน" value={topup} />
+          <ResultItem label="ต้องเติมเงิน" value={topup} />
           <ResultItem label="มูลค่าซื้อสินค้า" value={purchase} />
 
           <div className="input-group" style={{ marginTop: 12 }}>
-            <label className="input-label">ต้องการซื้อสินค้า 🛒 บาท</label>
+            <label className="input-label">ต้องการซื้อสินค้า</label>
             <div className="input-wrapper">
               <input
                 className="input-field"

@@ -7,7 +7,7 @@ const MULTIPLIER_PURCHASE = 2.5
 
 const PERIODS = [
   { key: 'day', label: 'ต่อวัน', max: 133 },
-  { key: 'month', label: 'ต่อเดือน', max: 670 },
+  { key: 'month', label: 'ต่อเดือน', max: 667 },
 ]
 
 function calc(wallet) {
@@ -28,8 +28,7 @@ function RemainWallet() {
 
   return (
     <section className="calc-section wallet-mode">
-      <h2 className="calc-title">คำนวณจากเงินคงเหลือ/เติมเงิน</h2>
-      <p className="calc-desc">รัฐสนับสนุนเงิน 60% ผู้รับสิทธิจ่ายเอง 40%</p>
+      <h2 className="calc-title">คำนวณจากเงินคงเหลือ/การเติมเงิน</h2>
 
       <div className="period-toggle">
         {PERIODS.map((p) => (
@@ -59,7 +58,9 @@ function RemainWallet() {
               if (val === '') return setWallet('')
               if (Number(val) > period.max) {
                 setShake(true)
-                showToast(`เงินคงเหลือ/เติมเงิน สูงสุดไม่เกิน ${period.max} บาท (${period.label})`)
+                showToast(
+                  `เงินคงเหลือ/เติมเงิน สูงสุดไม่เกิน ${period.max} บาท (${period.label})`,
+                )
                 setTimeout(() => setShake(false), 300)
                 return
               }
@@ -73,7 +74,7 @@ function RemainWallet() {
 
       {walletNum > 0 && (
         <div className="results">
-          <ResultItem label="รับเงินสมทบจากรัฐ" value={contribution} />
+          <ResultItem label="จะได้เงินสมทบจากโครงการ" value={contribution} />
           <ResultItem label="มูลค่าซื้อสินค้า" value={purchase} />
         </div>
       )}
